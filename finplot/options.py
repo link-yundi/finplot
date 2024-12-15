@@ -99,7 +99,7 @@ class Options:
     )
 
     @staticmethod
-    def get_echarts_options(xaxis_name: str=None, yaxis_name: str=None, title: str=None):
+    def get_echarts_options(xaxis_name: str=None, yaxis_name: str=None, title: str=None, hidden: list=None):
         default_opts = dict()
         x_axis = {k: v for k, v in Options.axispointer_opts.items()}
         if xaxis_name is not None:
@@ -112,4 +112,6 @@ class Options:
         default_opts.update(Options.echarts_opts)
         if title is not None:
             default_opts["title_opts"] = opts.TitleOpts(title=title)
+        if hidden is not None:
+            default_opts["legend_opts"] = opts.LegendOpts(selected_map={n: False for n in hidden})
         return default_opts

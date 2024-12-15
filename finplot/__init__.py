@@ -7,7 +7,7 @@ Created on 2024/12/9 下午3:06
 ---------------------------------------------
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 from .options import Options
 from .plotting import table, distplot, bar, violin, lines, box

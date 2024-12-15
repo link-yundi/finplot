@@ -62,7 +62,7 @@ def distplot(data: pd.Series | pd.DataFrame, bin_size):
     return fig
 
 
-def bar(data: pd.Series | pd.DataFrame, title: str = None):
+def bar(data: pd.Series | pd.DataFrame, title: str = None, hidden: list = None):
     """index是x-axis, columns是datasets"""
     if isinstance(data, pd.Series):
         data = data.to_frame()
@@ -71,7 +71,7 @@ def bar(data: pd.Series | pd.DataFrame, title: str = None):
     bar = (
         Bar(init_opts=opts.InitOpts(width="100%"))
         .add_xaxis(x_axis)
-        .set_global_opts(**Options.get_echarts_options(title=title))
+        .set_global_opts(**Options.get_echarts_options(title=title, hidden=hidden))
     )
     length = len(Options.colors)
     for i, name in enumerate(cols):
@@ -85,7 +85,7 @@ def bar(data: pd.Series | pd.DataFrame, title: str = None):
     return bar
 
 
-def box(data: pd.Series | pd.DataFrame, title: str = None):
+def box(data: pd.Series | pd.DataFrame, title: str = None, hidden: list=None):
     """箱图, 每一列是一个dataset"""
     if isinstance(data, pd.Series):
         data = data.to_frame()
@@ -94,7 +94,7 @@ def box(data: pd.Series | pd.DataFrame, title: str = None):
     chart = (
         Boxplot(init_opts=opts.InitOpts(width="100%"))
         .add_xaxis(x_axis, )
-        .set_global_opts(**Options.get_echarts_options(title=title))
+        .set_global_opts(**Options.get_echarts_options(title=title, hidden=hidden))
     )
     chart_data_all = dict()
     for name, dataset in data.items():
@@ -120,7 +120,7 @@ def box(data: pd.Series | pd.DataFrame, title: str = None):
     return chart
 
 
-def lines(data: pd.Series | pd.DataFrame, title: str = None):
+def lines(data: pd.Series | pd.DataFrame, title: str = None, hidden: list=None):
     """曲线图 index是x-axis, columns是datasets"""
     if isinstance(data, pd.Series):
         data = data.to_frame()
@@ -129,7 +129,7 @@ def lines(data: pd.Series | pd.DataFrame, title: str = None):
     line = (
         Line(init_opts=opts.InitOpts(width="100%"))
         .add_xaxis(x_axis, )
-        .set_global_opts(**Options.get_echarts_options(title=title))
+        .set_global_opts(**Options.get_echarts_options(title=title, hidden=hidden),)
     )
     length = len(Options.colors)
     for i, name in enumerate(cols):

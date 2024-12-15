@@ -34,7 +34,6 @@ setup(
                       'plotly',
                       'polars',
                       'ipywidgets',
-                      'datapane',
                       'jupyterlab',
                       'jupyterlab-vim',
                       'jupyterlab_execute_time',
@@ -49,7 +48,7 @@ setup(
     description='Finance Plot',
     long_description='',
     long_description_content_type='text/markdown',
-    url='https://github.com/link-yundi/finplot.git',
+    url='https://github.com/link-yundi/finplot',
 
     scripts=[],
     package_data={},
