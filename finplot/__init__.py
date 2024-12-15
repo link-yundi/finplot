@@ -11,6 +11,7 @@ __version__ = '0.1.0'
 
 from .options import Options
 from .plotting import table, distplot, bar, violin, lines, box
+from .explore import go
 
 __all__ = ["table",
            "distplot",
@@ -18,4 +19,5 @@ __all__ = ["table",
            "Options",
            "violin",
            "lines",
-           "box"]
+           "box",
+           "go",]
